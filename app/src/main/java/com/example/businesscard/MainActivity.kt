@@ -116,7 +116,7 @@ fun ContactSection() {
             contentDescription = "Numéro de téléphone",
             onClick = {
                 val intent = Intent(Intent.ACTION_DIAL).apply {
-                    data = Uri.parse("tel:+22507049210880")
+                    data = Uri.parse("tel:+2250704921080")
                 }
                 context.startActivity(intent)
             }
