@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Business Card</string>
-    <string name="full_name">Jennifer Doe</string>
-    <string name="job_title">Développeuse Android</string>
-    <string name="phone_number">+33 6 12 34 56 78</string>
-    <string name="social_handle">\@AndroidDev</string>
-    <string name="email_address">jennifer.doe@android.com</string>
-    <string name="phone_icon_description">Numéro de téléphone</string>
-    <string name="social_icon_description">Réseau social</string>
-    <string name="email_icon_description">Adresse email</string>
+    <string name="full_name">Abdel Malik</string>
+    <string name="job_title">Développeur Android</string>
+    <string name="phone_number">+225 07 04 92 10 80</string>
+    <string name="social_handle">\@MalikDev</string>
+    <string name="email_address">info@malik-dev.tech</string>
+    <string name="phone_icon_description">Numéro de téléphone - Cliquez pour appeler</string>
+    <string name="social_icon_description">Réseau social - Cliquez pour visiter</string>
+    <string name="email_icon_description">Adresse email - Cliquez pour envoyer un email</string>
     <string name="logo_description">Logo Android</string>
 </resources>

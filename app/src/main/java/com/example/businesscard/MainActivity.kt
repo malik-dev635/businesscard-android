@@ -1,11 +1,16 @@
 package com.example.businesscard
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Phone
@@ -14,9 +19,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -99,6 +106,8 @@ fun LogoSection() {
 
 @Composable
 fun ContactSection() {
+    val context = LocalContext.current
+    
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -107,19 +116,37 @@ fun ContactSection() {
         ContactItem(
             icon = Icons.Default.Phone,
             text = "+225 07 04 92 10 80",
-            contentDescription = "Numéro de téléphone"
+            contentDescription = "Numéro de téléphone",
+            onClick = {
+                val intent = Intent(Intent.ACTION_DIAL).apply {
+                    data = Uri.parse("tel:+22507049210880")
+                }
+                context.startActivity(intent)
+            }
         )
         
         ContactItem(
             icon = Icons.Default.Share,
             text = "@MalikDev",
-            contentDescription = "Réseau social"
+            contentDescription = "Réseau social",
+            onClick = {
+                val intent = Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse("https://twitter.com/MalikDev")
+                }
+                context.startActivity(intent)
+            }
         )
         
         ContactItem(
             icon = Icons.Default.Email,
             text = "info@malik-dev.tech",
-            contentDescription = "Adresse email"
+            contentDescription = "Adresse email",
+            onClick = {
+                val intent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:info@malik-dev.tech")
+                }
+                context.startActivity(intent)
+            }
         )
     }
 }
@@ -128,12 +155,18 @@ fun ContactSection() {
 fun ContactItem(
     icon: androidx.compose.ui.graphics.vector.ImageVector,
     text: String,
-    contentDescription: String
+    contentDescription: String,
+    onClick: () -> Unit = {}
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .clickable(
+                onClick = onClick,
+                indication = rememberRipple(color = Color(0xFF3ddc84)),
+                interactionSource = remember { MutableInteractionSource() }
+            )
+            .padding(vertical = 12.dp, horizontal = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(
