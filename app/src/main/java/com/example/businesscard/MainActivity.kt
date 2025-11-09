@@ -128,7 +128,7 @@ fun ContactSection() {
             contentDescription = "Réseau social",
             onClick = {
                 val intent = Intent(Intent.ACTION_VIEW).apply {
-                    data = Uri.parse("https://twitter.com/MalikDev")
+                    data = Uri.parse("https://malik-dev.tech")
                 }
                 context.startActivity(intent)
             }
