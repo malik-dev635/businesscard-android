@@ -5,6 +5,7 @@ Application Android de carte de visite développée avec Jetpack Compose.
 ## Description
 
 Cette application affiche une carte de visite professionnelle avec :
+
 - Logo Android
 - Nom et titre professionnel
 - Coordonnées cliquables (téléphone, email, réseaux sociaux)
@@ -40,5 +41,4 @@ Cette application affiche une carte de visite professionnelle avec :
 
 ## Auteur
 
-Abdel Malik - COURS PIGIER
-
+Abdel Malik - PIGIER YAMOUSSOUKRO RGL3A Soir
