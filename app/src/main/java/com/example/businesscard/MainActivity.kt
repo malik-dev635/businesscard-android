@@ -1,14 +1,17 @@
 package com.example.businesscard
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Icon
@@ -18,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -79,7 +83,7 @@ fun LogoSection() {
         
         // Nom
         Text(
-            text = "Jennifer Doe",
+            text = "Abdel Malik",
             fontSize = 40.sp,
             fontWeight = FontWeight.Light,
             color = Color.White,
@@ -88,7 +92,7 @@ fun LogoSection() {
         
         // Fonction
         Text(
-            text = "Développeuse Android",
+            text = "Développeur Android",
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
             color = Color(0xFF3ddc84),
@@ -100,40 +104,74 @@ fun LogoSection() {
 
 @Composable
 fun ContactSection() {
+    val context = LocalContext.current
+    
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 32.dp)
     ) {
-        ContactItem(
+        ClickableContactItem(
             icon = Icons.Default.Phone,
-            text = "+33 6 12 34 56 78",
-            contentDescription = "Numéro de téléphone"
+            text = "+225 07 04 92 10 80",
+            contentDescription = "Numéro de téléphone",
+            onClick = {
+                val intent = Intent(Intent.ACTION_DIAL).apply {
+                    data = Uri.parse("tel:+2250704921080")
+                }
+                context.startActivity(intent)
+            }
         )
         
-        ContactItem(
+        ClickableContactItem(
             icon = Icons.Default.Share,
-            text = "@AndroidDev",
-            contentDescription = "Réseau social"
+            text = "@MalikDev",
+            contentDescription = "Réseau social",
+            onClick = {
+                val intent = Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse("https://twitter.com/MalikDev")
+                }
+                context.startActivity(intent)
+            }
         )
         
-        ContactItem(
+        ClickableContactItem(
             icon = Icons.Default.Email,
-            text = "jennifer.doe@android.com",
-            contentDescription = "Adresse email"
+            text = "info@malik-dev.tech",
+            contentDescription = "Adresse email",
+            onClick = {
+                val intent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:info@malik-dev.tech")
+                }
+                context.startActivity(intent)
+            }
+        )
+        
+        ClickableContactItem(
+            icon = Icons.Default.Language,
+            text = "malik-dev.tech",
+            contentDescription = "Site web",
+            onClick = {
+                val intent = Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse("https://malik-dev.tech")
+                }
+                context.startActivity(intent)
+            }
         )
     }
 }
 
 @Composable
-fun ContactItem(
+fun ClickableContactItem(
     icon: androidx.compose.ui.graphics.vector.ImageVector,
     text: String,
-    contentDescription: String
+    contentDescription: String,
+    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .clickable(onClick = onClick)
             .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
