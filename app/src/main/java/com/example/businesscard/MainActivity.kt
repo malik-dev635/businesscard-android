@@ -1,18 +1,14 @@
 package com.example.businesscard
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Phone
-import androidx.compose.material.icons.filled.Public
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -21,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -104,74 +99,40 @@ fun LogoSection() {
 
 @Composable
 fun ContactSection() {
-    val context = LocalContext.current
-    
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 32.dp)
     ) {
-        ClickableContactItem(
+        ContactItem(
             icon = Icons.Default.Phone,
             text = "+225 07 04 92 10 80",
-            contentDescription = "Numéro de téléphone",
-            onClick = {
-                val intent = Intent(Intent.ACTION_DIAL).apply {
-                    data = Uri.parse("tel:+2250704921080")
-                }
-                context.startActivity(intent)
-            }
+            contentDescription = "Numéro de téléphone"
         )
         
-        ClickableContactItem(
+        ContactItem(
             icon = Icons.Default.Share,
             text = "@MalikDev",
-            contentDescription = "Réseau social",
-            onClick = {
-                val intent = Intent(Intent.ACTION_VIEW).apply {
-                    data = Uri.parse("https://twitter.com/MalikDev")
-                }
-                context.startActivity(intent)
-            }
+            contentDescription = "Réseau social"
         )
         
-        ClickableContactItem(
+        ContactItem(
             icon = Icons.Default.Email,
             text = "info@malik-dev.tech",
-            contentDescription = "Adresse email",
-            onClick = {
-                val intent = Intent(Intent.ACTION_SENDTO).apply {
-                    data = Uri.parse("mailto:info@malik-dev.tech")
-                }
-                context.startActivity(intent)
-            }
-        )
-        
-        ClickableContactItem(
-            icon = Icons.Default.Public,
-            text = "malik-dev.tech",
-            contentDescription = "Site web",
-            onClick = {
-                val intent = Intent(Intent.ACTION_VIEW).apply {
-                    data = Uri.parse("https://malik-dev.tech")
-                }
-                context.startActivity(intent)
-            }
+            contentDescription = "Adresse email"
         )
     }
 }
 
 @Composable
-fun ClickableContactItem(
+fun ContactItem(
     icon: androidx.compose.ui.graphics.vector.ImageVector,
     text: String,
-    contentDescription: String,
-    onClick: () -> Unit
+    contentDescription: String
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onClick)
             .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
