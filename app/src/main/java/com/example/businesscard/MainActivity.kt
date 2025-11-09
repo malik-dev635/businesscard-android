@@ -11,8 +11,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.icons.filled.Public
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
@@ -148,7 +148,7 @@ fun ContactSection() {
         )
         
         ClickableContactItem(
-            icon = Icons.Default.Language,
+            icon = Icons.Default.Public,
             text = "malik-dev.tech",
             contentDescription = "Site web",
             onClick = {
