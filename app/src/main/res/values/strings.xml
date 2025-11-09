@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Business Card</string>
+    <string name="full_name">Jennifer Doe</string>
+    <string name="job_title">Développeuse Android</string>
+    <string name="phone_number">+33 6 12 34 56 78</string>
+    <string name="social_handle">\@AndroidDev</string>
+    <string name="email_address">jennifer.doe@android.com</string>
+    <string name="phone_icon_description">Numéro de téléphone</string>
+    <string name="social_icon_description">Réseau social</string>
+    <string name="email_icon_description">Adresse email</string>
+    <string name="logo_description">Logo Android</string>
+</resources>

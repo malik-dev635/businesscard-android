@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Corps du robot Android -->
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M50,80 L50,140 Q50,150 60,150 L140,150 Q150,150 150,140 L150,80 Z"/>
+    
+    <!-- Tête du robot Android -->
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M60,50 Q60,40 70,40 L130,40 Q140,40 140,50 L140,80 L60,80 Z"/>
+    
+    <!-- Antenne gauche -->
+    <path
+        android:fillColor="#3DDC84"
+        android:strokeWidth="4"
+        android:strokeColor="#3DDC84"
+        android:pathData="M80,40 L70,20"/>
+    
+    <!-- Antenne droite -->
+    <path
+        android:fillColor="#3DDC84"
+        android:strokeWidth="4"
+        android:strokeColor="#3DDC84"
+        android:pathData="M120,40 L130,20"/>
+    
+    <!-- Oeil gauche -->
+    <circle
+        android:fillColor="#FFFFFF"
+        android:cx="80"
+        android:cy="60"
+        android:radius="5"/>
+    
+    <!-- Oeil droit -->
+    <circle
+        android:fillColor="#FFFFFF"
+        android:cx="120"
+        android:cy="60"
+        android:radius="5"/>
+    
+    <!-- Bras gauche -->
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M40,90 Q35,90 35,95 L35,125 Q35,130 40,130 Q45,130 45,125 L45,95 Q45,90 40,90 Z"/>
+    
+    <!-- Bras droit -->
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M160,90 Q155,90 155,95 L155,125 Q155,130 160,130 Q165,130 165,125 L165,95 Q165,90 160,90 Z"/>
+    
+    <!-- Jambe gauche -->
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M70,150 Q65,150 65,155 L65,175 Q65,180 70,180 Q75,180 75,175 L75,155 Q75,150 70,150 Z"/>
+    
+    <!-- Jambe droite -->
+    <path
+        android:fillColor="#3DDC84"
+        android:pathData="M130,150 Q125,150 125,155 L125,175 Q125,180 130,180 Q135,180 135,175 L135,155 Q135,150 130,150 Z"/>
+</vector>
+
